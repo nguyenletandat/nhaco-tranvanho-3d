@@ -1,0 +1,361 @@
+/* =========================================================
+   Nhà Cổ Trần Văn Hổ — bản đồ 3D (gxu-campus-3d layout: sidebar
+   lọc lớp + danh sách điểm tham quan + viewport bản đồ 3D)
+   ========================================================= */
+
+html, body.map-page {
+  height: 100%;
+  overflow: hidden;
+  background: var(--earth-900);
+}
+
+.map-page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Header ---------- */
+.map-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 24px;
+  background: var(--earth-900);
+  border-bottom: 1px solid rgba(242, 232, 213, 0.12);
+  color: var(--beige);
+  flex: 0 0 auto;
+  z-index: 5;
+}
+
+.map-header__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--bronze-light);
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.map-header__back:hover {
+  color: var(--beige);
+}
+
+.map-header__title {
+  flex: 1;
+  min-width: 0;
+}
+
+.map-header__eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.map-header__title h1 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--cream);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map-header__repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(242, 232, 213, 0.08);
+  color: var(--beige);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.map-header__repo:hover {
+  background: rgba(242, 232, 213, 0.16);
+}
+
+/* ---------- Shell ---------- */
+.map-shell {
+  flex: 1 1 auto;
+  display: flex;
+  min-height: 0;
+}
+
+.map-sidebar {
+  width: 340px;
+  flex: 0 0 auto;
+  background: var(--earth-800);
+  color: var(--beige);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-right: 1px solid rgba(242, 232, 213, 0.1);
+}
+
+.map-sidebar__notice {
+  margin: 16px 16px 0;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  background: rgba(160, 82, 45, 0.18);
+  border: 1px solid rgba(176, 141, 87, 0.35);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--beige-dark);
+}
+
+.map-sidebar__notice code {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.map-sidebar__block {
+  padding: 16px;
+  border-bottom: 1px solid rgba(242, 232, 213, 0.08);
+}
+
+.map-sidebar__block--grow {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-sidebar__block h2 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--bronze-light);
+  margin: 0 0 12px;
+}
+
+.map-sidebar__block-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.map-sidebar__block-head h2 {
+  margin: 0;
+}
+
+.landmark-count {
+  font-size: 0.75rem;
+  color: var(--bronze-light);
+  font-weight: 600;
+}
+
+/* ---------- Layer toggles ---------- */
+.layer-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  padding: 7px 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.layer-toggle input {
+  accent-color: var(--terracotta);
+  width: 16px;
+  height: 16px;
+}
+
+.layer-toggle__swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--swatch, var(--bronze));
+  flex: 0 0 auto;
+}
+
+.layer-toggle--extrusion {
+  margin-top: 4px;
+  padding-top: 11px;
+  border-top: 1px dashed rgba(242, 232, 213, 0.15);
+}
+
+/* ---------- Landmark list ---------- */
+.landmark-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.landmark-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  background: rgba(242, 232, 213, 0.04);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.landmark-item:hover {
+  background: rgba(242, 232, 213, 0.09);
+}
+
+.landmark-item.is-active {
+  border-color: var(--terracotta);
+  background: rgba(160, 82, 45, 0.22);
+}
+
+.landmark-item input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: var(--terracotta);
+  flex: 0 0 auto;
+}
+
+.landmark-item__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.landmark-item__name {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--cream);
+}
+
+.landmark-item__cat {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--bronze-light);
+  margin-top: 2px;
+}
+
+/* ---------- Tour button ---------- */
+.map-sidebar__tour {
+  border-bottom: none;
+}
+
+.map-tour-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.map-tour-hint {
+  margin: 10px 0 0;
+  font-size: 0.75rem;
+  color: var(--bronze-light);
+  line-height: 1.5;
+}
+
+/* ---------- Viewport ---------- */
+.map-viewport {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+}
+
+.map-viewport__hint {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  background: rgba(43, 29, 18, 0.75);
+  color: var(--beige);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* ---------- Landmark map markers ---------- */
+.landmark-marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--cream);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.landmark-marker:hover,
+.landmark-marker.is-active {
+  transform: scale(1.3);
+}
+
+.landmark-marker--kien-truc { background: #a0522d; }
+.landmark-marker--noi-that { background: #b08d57; }
+.landmark-marker--canh-quan { background: #6b8f5e; }
+
+.maplibregl-popup-content {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.maplibregl-popup-content h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  color: var(--earth-800);
+}
+
+.maplibregl-popup-content p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.maplibregl-popup-tip {
+  border-top-color: var(--cream) !important;
+  border-bottom-color: var(--cream) !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .map-shell {
+    flex-direction: column;
+  }
+
+  .map-sidebar {
+    width: 100%;
+    max-height: 46vh;
+    border-right: none;
+    border-bottom: 1px solid rgba(242, 232, 213, 0.1);
+  }
+
+  .map-header__title h1 {
+    font-size: 1rem;
+  }
+
+  .map-viewport__hint {
+    display: none;
+  }
+}

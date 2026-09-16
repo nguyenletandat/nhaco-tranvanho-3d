@@ -1,0 +1,99 @@
+{
+  "type": "FeatureCollection",
+  "note": "Vị trí ước lượng (anchor cấp độ đường phố + suy ra từ mặt bằng CAD nội bộ, xem 3D_NhaCo/derived/NOTES.md của repo GeoLibre) — CHƯA phải toạ độ khảo sát GPS thực địa.",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "khoi-nha-chinh",
+        "name": "Khối nhà chính",
+        "category": "kien-truc",
+        "categoryLabel": "Kiến trúc chính",
+        "height": 6.15,
+        "description": "Khối bao toàn bộ ngôi nhà, tái dựng từ mặt bằng CAD (ArcGIS DWG→shapefile). Chiều cao 6,15 m lấy trung bình 2 mốc cao độ đỉnh mái tìm thấy trong bản vẽ gốc — ước lượng, chưa tách mái hiên khỏi mái chính."
+      },
+      "geometry": { "type": "Point", "coordinates": [106.6493005, 10.9817781] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mai-ngoi",
+        "name": "Mái ngói",
+        "category": "kien-truc",
+        "categoryLabel": "Kiến trúc chính",
+        "description": "Mái ngói âm dương truyền thống Nam Bộ. Dữ liệu CAD gốc chỉ cho một cao độ đỉnh mái — hình khối mái chi tiết (mái chính + mái hiên) cần dựng lại từ mặt đứng/mặt cắt hoặc khảo sát thực địa."
+      },
+      "geometry": { "type": "Point", "coordinates": [106.6493005, 10.9817781] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gian-tiep-khach",
+        "name": "Gian tiếp khách",
+        "category": "noi-that",
+        "categoryLabel": "Không gian nội thất",
+        "area": 54.24,
+        "description": "Gian ngoài cùng phía nam, nơi tiếp khách — mở đầu bố cục \"tiền sảnh → thờ → sinh hoạt\" đặc trưng nhà cổ Nam Bộ."
+      },
+      "geometry": { "type": "Point", "coordinates": [106.64929641837716, 10.981736608621958] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gian-tho",
+        "name": "Gian thờ",
+        "category": "noi-that",
+        "categoryLabel": "Không gian nội thất",
+        "area": 50.87,
+        "description": "Gian thờ ở trung tâm ngôi nhà — hoành phi, bàn thờ chính đặt tại đây."
+      },
+      "geometry": { "type": "Point", "coordinates": [106.64931919536743, 10.981785950712544] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "buong-ngu",
+        "name": "Buồng ngủ",
+        "category": "noi-that",
+        "categoryLabel": "Không gian nội thất",
+        "area": 18.57,
+        "description": "Buồng ngủ nằm lệch về phía sau, ngăn bằng vách gỗ với gian thờ và khu sinh hoạt."
+      },
+      "geometry": { "type": "Point", "coordinates": [106.64930047576625, 10.981824687845963] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "sinh-hoat-gia-dinh",
+        "name": "Sinh hoạt gia đình",
+        "category": "noi-that",
+        "categoryLabel": "Không gian nội thất",
+        "area": 76.47,
+        "description": "Khu sinh hoạt gia đình ở phía bắc ngôi nhà — không gian mở, không có polygon tường khép kín trong mặt bằng CAD."
+      },
+      "geometry": { "type": "Point", "coordinates": [106.6493169608018, 10.981839581763607] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "san-trong",
+        "name": "Sân trong",
+        "category": "canh-quan",
+        "categoryLabel": "Cảnh quan sân vườn",
+        "description": "Khoảng sân giữa cổng và nhà chính, trong khuôn viên rộng 1.296 m²."
+      },
+      "geometry": { "type": "Point", "coordinates": [106.649300, 10.9817057] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cong-chinh",
+        "name": "Cổng chính",
+        "category": "canh-quan",
+        "categoryLabel": "Cảnh quan sân vườn",
+        "description": "Cổng vào từ phía đường Bạch Đằng, hướng ra Sông Sài Gòn."
+      },
+      "geometry": { "type": "Point", "coordinates": [106.649300, 10.9816653] }
+    }
+  ]
+}

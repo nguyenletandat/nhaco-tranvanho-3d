@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Nhà Cổ Trần Văn Hổ — Di sản trăm năm</title>
+<!-- TODO: viết lại mô tả SEO/OG cho đúng nội dung cuối cùng của trang -->
+<meta name="description" content="Khám phá Nhà cổ ông Trần Văn Hổ qua mô hình 3D tương tác và hành trình lịch sử trăm năm." />
+<meta property="og:title" content="Nhà Cổ Trần Văn Hổ — Di sản trăm năm" />
+<meta property="og:description" content="Mô hình 3D tương tác và câu chuyện lịch sử của một di tích kiến trúc Nam Bộ." />
+<!-- TODO: thay bằng ảnh chia sẻ (og:image) thật khi có -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ 1. HERO ============ -->
+<header class="hero" id="hero">
+  <div class="hero__bg" style="background-image:url('assets/hero-bg.jpg')"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">Di tích kiến trúc nghệ thuật cấp Quốc gia</p>
+    <!-- Tên công trình: đã xác nhận theo hồ sơ (binhduong.gov.vn) -->
+    <h1 class="hero__title">Nhà Cổ<br />Trần Văn Hổ</h1>
+    <!-- TODO: thay bằng tagline chính thức, 1 câu ngắn -->
+    <p class="hero__tagline">Một chứng nhân trăm năm của kiến trúc Nam Bộ,<br />giữa lòng Thủ Dầu Một.</p>
+    <div class="hero__cta-row">
+      <a href="#model-section" class="btn btn--primary hero__cta">
+        <span>Khám phá mô hình 3D</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </a>
+      <a href="map.html" class="btn btn--outline hero__cta">
+        <span>Xem bản đồ 3D</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </a>
+    </div>
+  </div>
+  <a href="#model-section" class="hero__scroll-hint" aria-label="Cuộn xuống">
+    <span></span>
+  </a>
+</header>
+
+<!-- ============ 2. MÔ HÌNH 3D TƯƠNG TÁC ============ -->
+<section class="section model-section" id="model-section">
+  <div class="container">
+    <p class="section__eyebrow" data-aos="fade-up">Trải nghiệm tương tác</p>
+    <h2 class="section__title" data-aos="fade-up">Mô hình 3D</h2>
+    <p class="model-section__hint" data-aos="fade-up">
+      Chạm và kéo để xoay &nbsp;·&nbsp; Chụm hai ngón để zoom &nbsp;·&nbsp; Nhấn các điểm đánh dấu để xem chú thích
+    </p>
+  </div>
+
+  <div class="model-viewer-wrap" data-aos="fade-up">
+    <model-viewer
+      id="house-model"
+      class="model-viewer"
+      src="3DNhaCo.glb"
+      alt="Mô hình 3D Nhà cổ Trần Văn Hổ"
+      camera-controls
+      touch-action="pan-y"
+      auto-rotate
+      auto-rotate-delay="1500"
+      rotation-per-second="12deg"
+      interaction-prompt="none"
+      shadow-intensity="1"
+      exposure="1"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      ar-scale="auto"
+      camera-orbit="35deg 70deg auto"
+      min-camera-orbit="auto 10deg auto"
+      max-camera-orbit="auto 100deg auto"
+    >
+      <!-- Nút AR hiện sẵn của model-viewer -->
+      <button slot="ar-button" class="ar-button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /><path d="M3 7l9 5 9-5M12 22V12" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /></svg>
+        Xem AR
+      </button>
+
+      <!--
+        HOTSPOT MẪU — dữ liệu placeholder, có thể thêm/bớt/sửa thoải mái.
+        data-position / data-normal: toạ độ (x y z, đơn vị mét) đã ước lượng lại cho
+        khớp với mô hình 3DNhaCo.glb hiện tại (cổng + nhà + sân vườn, gốc toạ độ giữ
+        nguyên như khi xuất từ NHA ONG TRAN VAN HO.obj). Vẫn chỉ là ước lượng theo mắt
+        thường — TODO: mở site, bấm thử từng hotspot, tinh chỉnh lại vài chục cm nếu
+        chưa nằm đúng ngay trên cổng/mái/sân.
+        Nội dung chú thích trong mỗi <div class="hotspot-annotation"> vẫn là placeholder.
+      -->
+      <button class="hotspot" slot="hotspot-1" data-position="6m 2.4m 1m" data-normal="0m 0.3m 1m" data-visibility-attribute="visible" aria-label="Điểm đánh dấu: Cổng chính">
+        <span class="hotspot__dot"></span>
+        <div class="hotspot-annotation">
+          <strong>Cổng chính</strong>
+          <p><!-- TODO: thay nội dung lịch sử/kiến trúc thật cho hotspot này -->Nội dung placeholder — mô tả về cổng chính sẽ được cập nhật tại đây.</p>
+        </div>
+      </button>
+
+      <button class="hotspot" slot="hotspot-2" data-position="22m 5.3m -20m" data-normal="0m 1m 0m" data-visibility-attribute="visible" aria-label="Điểm đánh dấu: Mái ngói">
+        <span class="hotspot__dot"></span>
+        <div class="hotspot-annotation">
+          <strong>Mái ngói</strong>
+          <p><!-- TODO: thay nội dung lịch sử/kiến trúc thật cho hotspot này -->Nội dung placeholder — mô tả về kết cấu mái ngói sẽ được cập nhật tại đây.</p>
+        </div>
+      </button>
+
+      <button class="hotspot" slot="hotspot-3" data-position="16m 0.3m -6m" data-normal="0m 1m 0m" data-visibility-attribute="visible" aria-label="Điểm đánh dấu: Sân trong">
+        <span class="hotspot__dot"></span>
+        <div class="hotspot-annotation">
+          <strong>Sân trong</strong>
+          <p><!-- TODO: thay nội dung lịch sử/kiến trúc thật cho hotspot này -->Nội dung placeholder — mô tả về sân trong sẽ được cập nhật tại đây.</p>
+        </div>
+      </button>
+    </model-viewer>
+
+    <!-- Loading skeleton, ẩn đi khi model-viewer bắn sự kiện 'load' (xử lý trong script.js) -->
+    <div class="model-skeleton" id="model-skeleton" aria-hidden="true">
+      <div class="model-skeleton__shimmer"></div>
+      <p class="model-skeleton__label">Đang tải mô hình 3D…</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. CÂU CHUYỆN LỊCH SỬ ============ -->
+<section class="section story-section" id="story">
+  <div class="container">
+    <p class="section__eyebrow" data-aos="fade-up">Hành trình trăm năm</p>
+    <h2 class="section__title" data-aos="fade-up">Câu chuyện lịch sử</h2>
+  </div>
+
+  <div class="story-block container" data-aos="fade-right">
+    <div class="story-block__media">
+      <img src="assets/story-1.jpg" alt="Chi tiết chạm khắc gỗ cổ và kết cấu mái trong nhà" loading="lazy" />
+    </div>
+    <div class="story-block__text">
+      <span class="story-block__tag">Giai đoạn 1</span>
+      <h3>Khởi dựng</h3>
+      <!-- TODO: thay bằng nội dung lịch sử thật (năm khởi công, người xây dựng, bối cảnh...) -->
+      <p>
+        Ngôi nhà được khởi dựng vào năm Canh Dần (1890) trên khuôn viên rộng 1.296 m²,
+        mang đậm dấu ấn kiến trúc nhà rường Nam Bộ. Đoạn văn này là nội dung placeholder —
+        vui lòng thay bằng tư liệu lịch sử đã được xác minh về quá trình khởi dựng công trình.
+      </p>
+    </div>
+  </div>
+
+  <div class="story-block story-block--reverse container" data-aos="fade-left">
+    <div class="story-block__media">
+      <img src="assets/story-2.jpg" alt="Dấu vết thời gian trên tường và lối đi cũ của công trình" loading="lazy" />
+    </div>
+    <div class="story-block__text">
+      <span class="story-block__tag">Giai đoạn 2</span>
+      <h3>Biến động lịch sử</h3>
+      <!-- TODO: thay bằng nội dung lịch sử thật (chiến tranh, đổi chủ, hư hại...) -->
+      <p>
+        Trải qua nhiều thập kỷ biến động, ngôi nhà là chứng nhân của nhiều sự kiện lịch sử
+        quan trọng của vùng đất Thủ Dầu Một. Đoạn văn này là nội dung placeholder — vui lòng
+        thay bằng tư liệu lịch sử thật về giai đoạn này.
+      </p>
+    </div>
+  </div>
+
+  <div class="story-block container" data-aos="fade-right">
+    <div class="story-block__media">
+      <img src="assets/story-3.jpg" alt="Bảng công nhận Di tích kiến trúc nghệ thuật cấp Quốc gia" loading="lazy" />
+    </div>
+    <div class="story-block__text">
+      <span class="story-block__tag">Giai đoạn 3</span>
+      <h3>Trùng tu &amp; bảo tồn</h3>
+      <!-- TODO: thay bằng nội dung lịch sử thật (năm xếp hạng di tích, các đợt trùng tu...) -->
+      <p>
+        Được công nhận là di tích kiến trúc nghệ thuật cấp Quốc gia ngày 07/01/1993, công
+        trình tiếp tục được gìn giữ qua các đợt trùng tu. Đoạn văn này là nội dung
+        placeholder — vui lòng thay bằng tư liệu thật về công tác bảo tồn.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. TIMELINE ============ -->
+<section class="section timeline-section" id="timeline">
+  <div class="container">
+    <p class="section__eyebrow" data-aos="fade-up">Dòng thời gian</p>
+    <h2 class="section__title" data-aos="fade-up">Các mốc son</h2>
+  </div>
+  <!-- Nội dung được render động từ mảng TIMELINE_DATA trong script.js -->
+  <div class="timeline container" id="timeline-list"></div>
+</section>
+
+<!-- ============ 5. THƯ VIỆN ẢNH ============ -->
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+    <p class="section__eyebrow" data-aos="fade-up">Hình ảnh</p>
+    <h2 class="section__title" data-aos="fade-up">Thư viện ảnh</h2>
+
+    <div class="gallery-grid" id="gallery-grid" data-aos="fade-up">
+      <button class="gallery-item" data-full="assets/gallery-1.jpg"><img src="assets/gallery-1.jpg" alt="Cổng chính, số nhà 18 đường Bạch Đằng" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-2.jpg"><img src="assets/gallery-2.jpg" alt="Mái ngói và hoa văn đầu đao" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-3.jpg"><img src="assets/gallery-3.jpg" alt="Sân trong và mặt hông ngôi nhà" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-4.jpg"><img src="assets/gallery-4.jpg" alt="Cửa vào gian thờ chạm khắc gỗ" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-5.jpg"><img src="assets/gallery-5.jpg" alt="Chi tiết chạm khắc và hoành phi" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-6.jpg"><img src="assets/gallery-6.jpg" alt="Cột và kèo gỗ chạm khắc" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-7.jpg"><img src="assets/gallery-7.jpg" alt="Toàn cảnh mặt tiền công trình" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-8.jpg"><img src="assets/gallery-8.jpg" alt="Bản vẽ phục dựng mặt bằng khuôn viên" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-9.jpg"><img src="assets/gallery-9.jpg" alt="Bàn thờ chính tại gian thờ" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-10.jpg"><img src="assets/gallery-10.jpg" alt="Hoành phi sơn son thếp vàng" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-11.jpg"><img src="assets/gallery-11.jpg" alt="Không gian thờ cúng trong nhà" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-12.jpg"><img src="assets/gallery-12.jpg" alt="Phản gỗ chạm khắc tại gian tiếp khách" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-13.jpg"><img src="assets/gallery-13.jpg" alt="Vách ngăn gỗ khu buồng ngủ" loading="lazy" /></button>
+      <button class="gallery-item" data-full="assets/gallery-14.jpg"><img src="assets/gallery-14.jpg" alt="Không gian sinh hoạt gia đình" loading="lazy" /></button>
+    </div>
+
+    <!-- Ảnh xưa: chụp từ cổng ngoài đường; ảnh nay: chụp từ trong sân — không cùng góc,
+         nhưng để ảnh thật thay vì placeholder. TODO: chụp lại ảnh "nay" đúng góc với ảnh "xưa"
+         nếu muốn hiệu ứng so sánh chuẩn hơn. -->
+    <div class="compare" data-aos="fade-up">
+      <h3 class="compare__title">So sánh: Xưa &amp; Nay</h3>
+      <div class="compare__frame" id="compare-frame">
+        <img class="compare__img compare__img--before" src="assets/compare-old.jpg" alt="Ảnh nhà cổ Trần Văn Hổ chụp từ cổng ngoài đường" />
+        <div class="compare__after" id="compare-after">
+          <img class="compare__img compare__img--after" src="assets/compare-new.jpg" alt="Ảnh hiện trạng chụp từ trong sân" />
+        </div>
+        <input type="range" min="0" max="100" value="50" class="compare__range" id="compare-range" aria-label="Kéo để so sánh ảnh xưa và nay" />
+        <div class="compare__handle" id="compare-handle" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox cho thư viện ảnh -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" id="lightbox-close" aria-label="Đóng">&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Ảnh trước">&#10094;</button>
+  <img class="lightbox__img" id="lightbox-img" src="" alt="" />
+  <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Ảnh sau">&#10095;</button>
+</div>
+
+<!-- ============ 6. VỊ TRÍ ============ -->
+<section class="section location-section" id="location">
+  <div class="container location-grid">
+    <div data-aos="fade-right">
+      <p class="section__eyebrow">Ghé thăm</p>
+      <h2 class="section__title">Vị trí</h2>
+      <!-- Địa chỉ theo hồ sơ di tích (binhduong.gov.vn); toạ độ bản đồ bên dưới là ước lượng -->
+      <p class="location-address">
+        <strong>Nhà cổ Trần Văn Hổ</strong><br />
+        Số 18 đường Bạch Đằng, phường Phú Cường,<br />
+        TP. Thủ Dầu Một, tỉnh Bình Dương
+      </p>
+      <!-- TODO: thay giờ mở cửa placeholder bằng thông tin thật -->
+      <p class="location-hours">
+        <strong>Giờ mở cửa (placeholder):</strong><br />
+        Thứ Ba – Chủ nhật: 08:00 – 17:00<br />
+        Thứ Hai: đóng cửa
+      </p>
+    </div>
+    <div class="location-map" data-aos="fade-left">
+      <!--
+        TODO: toạ độ dưới đây chỉ là ước lượng theo địa chỉ (xem 3D_NhaCo/derived/NOTES.md).
+        Thay bằng toạ độ chính xác (ví dụ lấy từ Google Maps: nhấp chuột phải trên bản đồ
+        tại đúng vị trí công trình → sao chép toạ độ), rồi cập nhật lại src bên dưới.
+      -->
+      <iframe
+        title="Bản đồ vị trí Nhà cổ Trần Văn Hổ"
+        src="https://www.google.com/maps?q=S%E1%BB%91%2018%20%C4%91%C6%B0%E1%BB%9Dng%20B%E1%BA%A1ch%20%C4%90%E1%BA%B1ng%2C%20ph%C6%B0%E1%BB%9Dng%20Ph%C3%BA%20C%C6%B0%E1%BB%9Dng%2C%20Th%E1%BB%A7%20D%E1%BA%A7u%20M%E1%BB%99t%2C%20B%C3%ACnh%20D%C6%B0%C6%A1ng&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. FOOTER / CHIA SẺ ============ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__share">
+      <p class="footer__share-label">Chia sẻ trang này</p>
+      <div class="share-buttons">
+        <button class="share-btn share-btn--fb" id="share-fb" aria-label="Chia sẻ lên Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg>
+          Facebook
+        </button>
+        <button class="share-btn share-btn--zalo" id="share-zalo" aria-label="Chia sẻ lên Zalo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.8 1.44 5.3 3.7 6.97-.12.98-.46 2.24-1.42 3.53 0 0 2.24-.24 4.4-1.7.98.3 2.04.46 3.32.46 5.52 0 10-4.03 10-9s-4.48-9-10-9Z"/></svg>
+          Zalo
+        </button>
+      </div>
+    </div>
+
+    <div class="footer__info">
+      <!-- TODO: thay bằng thông tin đơn vị quản lý di tích thật -->
+      <p class="footer__org">Đơn vị quản lý di tích: <em>(placeholder — tên đơn vị quản lý)</em></p>
+      <p class="footer__org">Liên hệ: <em>(placeholder — số điện thoại / email)</em></p>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>&copy; <span id="footer-year"></span> Nhà Cổ Trần Văn Hổ. Bảo lưu mọi quyền.</p>
+  </div>
+</footer>
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
