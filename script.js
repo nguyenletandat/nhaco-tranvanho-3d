@@ -31,16 +31,17 @@ function initAOS() {
 
 /* ---------------------------------------------------------
  * TIMELINE — dữ liệu dạng mảng, dễ chỉnh sửa.
- * TODO: đây là các mốc placeholder (trừ 1890 và 1993 là mốc
- * đã xác nhận theo hồ sơ di tích) — bổ sung/chỉnh sửa các sự
- * kiện thật của công trình tại đây.
+ * Nguồn từng mốc: xem CONTENT-RESEARCH.md. Chỉ đưa vào đây các
+ * mốc đối chiếu được với bảng giới thiệu tại hiện trường hoặc
+ * báo chí đã xuất bản — không suy đoán năm cho các sự kiện
+ * chưa có nguồn xác nhận.
  * ------------------------------------------------------- */
 const TIMELINE_DATA = [
-  { year: '1890', event: 'Khởi dựng ngôi nhà (năm Canh Dần), trên khuôn viên rộng 1.296 m².' },
-  { year: '19xx', event: '(Placeholder) Một sự kiện lịch sử đáng chú ý trong giai đoạn biến động — thay bằng nội dung thật.' },
+  { year: '1890', event: 'Cụ Trần Văn Lân khởi dựng ngôi nhà (năm Canh Dần) trên khuôn viên rộng 1.296 m², theo kiểu chữ Đinh.' },
+  { year: '1890-1893', event: 'Hơn 300 thợ mộc từ Huế xây dựng liên tục hơn ba năm, hoàn thành phần khung gỗ chính.' },
   { year: '1993', event: 'Được xếp hạng Di tích kiến trúc nghệ thuật cấp Quốc gia (07/01/1993).' },
-  { year: '20xx', event: '(Placeholder) Đợt trùng tu / bảo tồn — thay bằng nội dung và năm thật.' },
-  { year: '20xx', event: '(Placeholder) Mốc gần đây nhất — thay bằng nội dung và năm thật.' },
+  { year: '2017', event: 'Ban Quản lý Di tích và Danh thắng tỉnh Bình Dương lắp bảng giới thiệu di tích tại hiện trường (22/6/2017).' },
+  { year: '2025-2026', event: 'Khảo sát số hóa bằng GIS và mô hình 3D, công bố trang web tương tác này.' },
 ];
 
 function initTimeline() {

@@ -127,25 +127,6 @@ a {
   transform: translateY(2px);
 }
 
-.btn--outline {
-  background: transparent;
-  color: var(--cream);
-  border: 1.5px solid rgba(251, 246, 236, 0.55);
-}
-
-.btn--outline:hover {
-  background: rgba(251, 246, 236, 0.12);
-  border-color: var(--cream);
-  transform: translateY(-2px);
-}
-
-.hero__cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
-}
-
 /* ============ 1. HERO ============ */
 .hero {
   position: relative;
@@ -433,6 +414,13 @@ model-viewer.model-viewer {
 
 .story-block__text p {
   color: var(--text-muted);
+}
+
+.story-block__source {
+  font-size: 0.78rem;
+  color: var(--bronze);
+  font-style: italic;
+  margin-top: -0.4em;
 }
 
 /* ============ 4. TIMELINE ============ */
