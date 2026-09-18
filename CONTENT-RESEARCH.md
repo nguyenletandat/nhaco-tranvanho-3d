@@ -48,6 +48,15 @@ vì thay một chỗ trống bằng thông tin chưa kiểm chứng.
   diện tích nhà chính khoảng 200 m²).
 - Ngày xếp hạng Di tích cấp Quốc gia 07/01/1993: đã dùng trong bài báo NCKH,
   nguồn binhduong.gov.vn.
+- **Mái ngói âm dương** — CafeF nêu rõ mái lợp ngói âm dương, khung gỗ/mái
+  chính còn "gần như nguyên vẹn" sau hơn 100 năm. Dùng cho hotspot "Mái ngói".
+- **Cổng hướng ra đường Bạch Đằng/sông Sài Gòn** — không phải suy đoán: nhãn
+  "Đường Bạch Đằng" và "Sông Sài Gòn" nằm ngay trong lớp Annotation của
+  chính bộ dữ liệu CAD gốc (xem `3D_NhaCo/derived/NOTES.md`), khớp hướng
+  công trình mô tả trong các bài báo. Dùng cho hotspot "Cổng chính".
+- **Sân trong có non bộ, nhà chính ba gian hai chái** — theo mô tả kiến trúc
+  nhà cổ Nam Bộ của Trương Thanh Kiểm (2009), đã dùng trong bài báo NCKH
+  mục 3. Dùng cho hotspot "Sân trong".
 
 ## Đã tra — không khớp hoặc không tìm thấy nguồn, KHÔNG đăng
 
